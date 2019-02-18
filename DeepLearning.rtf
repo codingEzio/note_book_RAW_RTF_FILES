@@ -1,0 +1,206 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red171\green215\blue252;\red255\green235\blue127;\red183\green250\blue154;
+\red242\green183\blue251;\red252\green63\blue65;\red19\green156\blue248;}
+{\*\expandedcolortbl;;\cspthree\c75180\c86993\c98050;\cspthree\c98802\c93182\c61495;\cspthree\c80392\c96643\c69669;
+\cspthree\c93548\c78738\c97482;\cspthree\c92600\c39226\c35086;\cspthree\c30389\c67200\c95530;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Page 17\
+\
+\cb2 AI systems need the ability to acquire their own knowledge, by extracting patterns from raw data. This capability is known as machine learning.\cb1 \
+\
+Page 18\
+\
+\cb2 tasks can be solved by designing the right set of features to extract for that task, then providing these features to a simple machine learning algorithm.\cb1 \
+\
+features: \uc0\u29305 \u24449 \
+\
+\cb2 for many tasks, it is difficult to know what features should be extracted.\cb1 \
+\
+it is difficult to describe exactly what a\
+wheel looks like in terms of pixel values.\
+\
+Its image may be complicated by shadows falling on the wheel, the sun glaring off the metal parts of the wheel, and so on.\
+\
+Page 19\
+\
+\cb2 One solution to this problem is to use machine learning to discover not only the mapping from representation to output but also the representation itself.\cb1 \
+\
+Page 20\
+\
+\cb3 A major source of difficulty in many real-world artificial intelligence applications is that many of the factors of variation influence every single piece of data we are able to observe.\cb1 \
+\
+\'93The individual pixels in an image of a red car might be very close to black at night. The shape of the car\'92s silhouette depends on the viewing angle. Most applications require us to disentangle the factors of variation and discard the ones that we do not care about.\'94\
+\
+\cb2 Many of these factors of variation, such as a speaker\'92s accent, can be identified only using sophisticated, nearly human-level understanding of the data.\cb1 \
+\
+\cb3 When it is nearly as difficult to obtain a representation as to solve the original problem, representation learning does not, at first glance, seem to help us.\cb1 \
+\
+replaced by \'91Deep Learning\'92\
+\
+\cb2 Deep learning solves this central problem in representation learning by introduc- ing representations that are expressed in terms of other, simpler representations. Deep learning allows the computer to build complex concepts out of simpler con- cepts.\cb1 \
+\
+\cb2 The quintessential example of a deep learning model is the feedforward deep network or multilayer perceptron (MLP).\cb1 \
+\
+.. \uc0\u19968 \u20491 \u38364 \u26044 \u28145 \u24230 \u23416 \u32722 \u30340 \u32147 \u20856 \u20363 \u23376 \u26159  ...\
+\
+[\uc0\u21069 \u39243 ]\
+\uc0\u39006  feedback (\u20294 \u21487 \u25511  variations)\
+\
+[perceptron-\uc0\u24863 \u30693 \u22120 ] \
+https://zh.m.wikipedia.org/wiki/\uc0\u24863 \u30693 \u22120 \
+\
+[\uc0\u22810 \u23652 \u24863 \u30693 \u22120 ]\
+https://zh.m.wikipedia.org/wiki/\uc0\u22810 \u23618 \u24863 \u30693 \u22120 \
+\
+\cb4 A multilayer perceptron is just a mathe- matical function mapping some set of input values to output values.\cb1 \
+\
+\cb3 each application of a different mathematical function as providing a new representation of the input.\cb1 \
+\
+\cb5 The idea of learning the right representation for the data provides one perspec- tive on deep learning.\cb1 \
+\
+\cb2 Another perspective on deep learning is that depth allows the computer to learn a multi-step computer program.\cb1 \
+\
+\ul \ulc6 Each layer of the representation can be thought of as the state of the computer\'92s memory after executing another set of instructions in parallel.\ulnone \
+\
+\ul \ulc6 Networks with greater depth can execute more instructions in sequence. Sequential instructions offer great power because later instructions can refer back to the results of earlier instructions.\ulnone \
+\
+Page 21\
+\
+\cb2 Deep learning resolves this difficulty by breaking the desired complicated mapping into a series of nested simple mappings, each described by a different layer of the model.\cb1 \
+\
+\cb4 The input is presented at the visible layer, so named because it contains the variables that we are able to observe.\cb1 \
+\
+\cb4 Then a series of hidden layers extracts increasingly abstract features from the image. These layers are called \'93hidden\'94 because their values are not given in the data; instead the model must determine which concepts are useful for explaining the relationships in the observed data.\cb1 \
+\
+\cb2 The images here are visualizations of the kind of feature represented by each hidden unit.\cb1 \
+\
+\uc0\u35211  (local-pic) \
+dpl_intro_001.jpg\
+\
+\cb5 Given the pixels, the first layer can easily identify edges, by comparing the brightness of neighboring pixels. Given the first hidden layer\'92s description of the edges, the second hidden layer can easily search for corners and extended contours, which are recognizable as collections of edges. Given the second hidden layer\'92s description of the image in terms of corners and contours, the third hidden layer can detect entire parts of specific objects, by finding specific collections of contours and corners. Finally, this description of the image in terms of the object parts it contains can be used to recognize the objects present in the image.\cb1 \
+\
+Page 22\
+\
+\ul \ulc6 not all of the information in a layer\'92s activations necessarily encodes factors of variation that explain the input.\ulnone \
+\
+\ul \ulc6 The representation also stores state information that helps to execute a program that can make sense of the input.\ulnone \
+\
+\ul \ulc6 This state information could be analogous to a counter or pointer in a traditional computer program.\ulnone \
+\
+\cb2 two main ways of measuring the depth of a model.\cb1 \
+\
+\cb4 The first view is based on the number of sequential instructions that must be executed to evaluate the architecture. We can think of this as the length of the longest path through a flow chart that describes how to compute each of the model\'92s outputs given its inputs.\cb1 \
+\
+\'93the same function may be drawn as a flowchart with different depths depending on which functions we allow to be used as individual steps in the flowchart.\'94\
+\
+\cb4 Another approach, used by deep probabilistic models, regards the depth of a model as being not the depth of the computational graph but the depth of the graph describing how concepts are related to each other.\cb1 \
+\
+\'93In this case, [ the depth of the flowchart of the computations needed to compute the representation of each concept ] may be much deeper than the graph of the concepts themselves.\'94\
+\
+well, \uc0\u30001  \'93\u25277 \u35937 \u20986 \u30340 \u27010 \u24565 \'94 \u20877 \u27425 \u25277 \u35937 \u20986 \u30340 \u27010 \u24565  (kind of \'91learning\'92)\
+\
+Page 23\
+\
+\cb5 For example, an AI system observing an image of a face with one eye in shadow may initially only see one eye. After detecting that a face is present, it can then infer that a second eye is probably present as well. In this case, the graph of concepts only includes two layers\'97a layer for eyes and a layer for faces\'97but the graph of computations includes 2n layers if we refine our estimate of each concept given the other n times.\cb1 \
+\
+\uc0\u20491 \u20154 \u29702 \u35299 :\
+\
+Initial: Eye -> Face (Eye) ( maybe another eye ) \
+\
+from the two concepts will evolve more concepts (or need of it) (or learning)\
+\
+\cb2 deep learning can safely be regarded as the study of models that either involve a greater amount of composition of learned functions or learned concepts than traditional machine learning does.\cb1 \
+\
+\cb2 it is a type of machine learning, a technique that allows computer systems to improve with experience and data.\cb1 \
+\
+a = \'91AI\'92\
+b = \'91ML\'92\
+c = \'91DL\'92\
+\
+( a ( b ( c ) ) )\
+\
+\cb3 The other target audience is software engineers who do not have a machine learning or statistics background, but want to rapidly acquire one and begin using deep learning in their product or platform.\cb1 \
+\
+Page 26\
+\
+\cb2 Part I introduces basic mathematical tools and machine learning concepts. Part II describes the most established deep learning algorithms that are essentially solved technologies. Part III describes more speculative ideas that are widely believed to be important for future research in deep learning.\cb1 \
+\
+Three pars of the book.\
+\
+\cb3 We assume familiarity with programming, a basic understanding of computational performance issues, complexity theory, introductory level calculus and some of the terminology of graph theory.\cb1 \
+\
+Page 28\
+\
+\cb5 In fact, deep learning dates back to the 1940s. Deep learning only appears to be new, because it was relatively unpopular for several years preceding its current popularity, and because it has gone through many different names, and has only recently become called \'93deep learning.\'94 The field has been rebranded many times, reflecting the influence of different researchers and different perspectives.\cb1 \
+\
+\cb2 artificial neural networks (ANNs)\cb1 \
+\
+\cb5 One idea is that the brain provides a proof by example that intelligent behavior is possible, and a conceptually straightforward path to building intelligence is to reverse engineer the computational principles behind the brain and duplicate its functionality.\cb1 \
+\
+Page 30\
+\
+\cb3 The main reason for the diminished role of neuroscience in deep learning research today is that we simply do not have enough information about the brain to use it as a guide.\cb1 \
+\
+\cb5 To obtain a deep understanding of the actual algorithms used by the brain, we would need to be able to monitor the activity of (at the very least) thousands of interconnected neurons simultaneously. Because we are not able to do this\cb1 \
+\
+\'93We are far from understanding even some of the most simple and well-studied parts of the brain.\'94\
+\
+Page 31\
+\
+\cb5 greater neural realism has not yet led to an improvement in machine learning performance.\cb1 \
+\
+\cb3 one should not view deep learning as an attempt to simulate the brain.\cb1 \
+\
+Page 32\
+\
+\cb3 The field of deep learning is primarily concerned with how to build computer systems that are able to successfully solve tasks requiring intelligence, while the field of computational neuroscience is primarily concerned with building more accurate models of how the brain actually works.\cb1 \
+\
+Page 33\
+\
+\cb3 the suc- cessful use of back-propagation to train deep neural networks with internal repre- sentations and the popularization of the back-propagation algorithm (Rumelhart et al., 1986a; LeCun, 1987). This algorithm has waxed and waned in popularity but as of this writing is currently the dominant approach to training deep models.\cb1 \
+\
+[back propagation]\
+\
+https://zh.m.wikipedia.org/wiki/\uc0\u21453 \u21521 \u20256 \u25773 \u31639 \u27861 \
+\
+Page 35\
+\
+\cb5 In retrospect, it is not particularly surprising that neural networks with fewer neurons than a leech were unable to solve sophisticated artificial intelligence prob- lems. Even today\'92s networks, which we consider quite large from a computational systems point of view, are smaller than the nervous system of even relatively primitive vertebrate animals like frogs.\cb1 \
+\
+Page 38\
+\
+\cb5 the advent of general purpose GPUs (described in Sec. 12.1.2), faster network connectivity and better software infrastructure for distributed computing, is one of the most important trends in the history of deep learning. This trend is generally expected to continue well into the future.\cb1 \
+\
+Page 40\
+\
+\cb5 This trend of increasing complexity has been pushed to its logical conclusion with the introduction of neural Turing machines (Graves et al., 2014a) that learn to read from memory cells and write arbitrary content to memory cells. Such neural networks can learn simple programs from examples of desired behavior. For example, they can learn to sort lists of numbers given examples of scrambled and sorted sequences. This self-programming technology is in its infancy, but in the future could in principle be applied to nearly any task.\cb1 \
+\
+\ul \ulc7 Another crowning achievement of deep learning is its extension to the domain of reinforcement learning. In the context of reinforcement learning, an autonomous agent must learn to perform a task by trial and error, without any guidance from the human operator. DeepMind demonstrated that a reinforcement learning system based on deep learning is capable of learning to play Atari video games, reaching human-level performance on many tasks (Mnih et al., 2015). Deep learning has also significantly improved the performance of reinforcement learning for robotics\ulnone \
+\
+Page 41\
+\
+\cb5 In summary, deep learning is an approach to machine learning that has drawn heavily on our knowledge of the human brain, statistics and applied math as it developed over the past several decades. In recent years, it has seen tremendous growth in its popularity and usefulness, due in large part to more powerful com- puters, larger datasets and techniques to train deeper networks. The years ahead are full of challenges and opportunities to improve deep learning even further and bring it to new frontiers.\cb1 \
+\
+Page 45\
+\
+\cb4 Next, we describe the fundamental goals of machine learning. We describe how to accomplish these goals by specifying a model that represents certain beliefs, designing a cost function that measures how well those beliefs correspond with reality and using a training algorithm to minimize that cost function.\cb1 \
+\
+\cb4 the basis for a broad variety of machine learning algorithms, including approaches to machine learning that are not deep.\cb1 \
+\
+Page 46\
+\
+\cb3 need a detailed reference sheet to review key formulas, we recommend The Matrix Cookbook (Petersen and Pedersen, 2006)\cb1 \
+\
+\cb5 This chapter will completely omit many important linear algebra topics that are not essential for understanding deep learning.\cb1 \
+\
+\cb2 Scalars: A scalar is just a single number\cb1 \
+\
+Page 47\
+\
+\cb2 Vectors: A vector is an array of numbers.\cb1 \
+\
+\cb4 The numbers are arranged in order. We can identify each individual number by its index in that ordering.\cb1 \
+\
+}
