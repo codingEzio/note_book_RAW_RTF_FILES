@@ -1,0 +1,79 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red171\green215\blue252;\red183\green250\blue154;\red254\green207\blue137;
+\red19\green156\blue248;}
+{\*\expandedcolortbl;;\cssrgb\c72157\c87451\c99216;\cssrgb\c76078\c97255\c66667;\cssrgb\c100000\c84314\c60392;
+\cssrgb\c0\c68235\c98039;}
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Page 6\
+\
+\cb2 This chapter explains some of the basic algorithmic concepts you should understand if you want to get the most out of your study of algorithms.\cb1 \
+\
+\cb3 you should at least skim this material\cb1 \
+\
+Page 7\
+\
+\cb2 Chunks of code that perform a task, optionally returning a result, are variously called routines, subroutines, methods, procedures, subprocedures, or functions.\cb1 \
+\
+\cb3 algorithm returns a value, so this Return statement indicates which value the algorithm should return\cb1 \
+\
+\cb4  If the algorithm doesn't return any value, such as if its purpose is to arrange values or build a data structure\cb1 \
+\
+Page 8\
+\
+\cb2 Big O\cb1 \
+\
+\cb3 how the algorithm's worst-case performance relates to the problem size\cb1 \
+\
+\ul \ulc5 O(N2) is pronounced \'93order N squared.\'94\ulnone \
+\
+Page 9\
+\
+\cb2 O(f(N)) steps\cb1 \
+\
+\cb3 If (array[i] > largest) Then largest = array[i]\cb1 \
+\
+1. Inside the loop \
+    2.1 in the worst case, it <= the array size \
+    2.2 then its \'91Big O\'92 is \'91O(N)\'92\
+\
+\
+\cb3 loops through the remaining values in the array\cb1 \
+\
+\cb4 comparing each to largest\cb1 \
+\
+\cb2 O(f(N) + g(N))\cb1 \
+\
+1. The actual \'91Big O\'92 for the prev algorithm.\
+2. O(1+N+1)\
+    2.1 Inside the loop  \'97  O(N)\
+    2.2 array[0], return  \'97  O(1) + O(1)\
+\
+\cb2 simplified to O(f(N))\cb1 \
+\
+[in-this-example]\
+    kinda the combination of rule1 & rule2.\
+\
+[how-it-was-called]\
+    relatively small setup and cleanup tasks\
+\
+\cb2 O(f(N) + g(N))\cb1 \
+\
+In short, nesting loop.\
+\
+Page 10\
+\
+\cb2 O(f(C \'d7 N)) is the same as O(f(N))\cb1 \
+\
+\cb3 The important thing here isn't the constant; it's the fact that the runtime increases as the square of the number of inputs N.\cb1 \
+\
+Not that the const isn\'92t important.\
+It\'92s all about the expo-increasing (much bigger)\
+\
+\cb2 If (<number1 is between number2 and number3>) Return number1\
+    If (<number2 is between number1 and number3>) Return number2    Return number3\cb1 \
+\
+O(1) in general.\
+\
+}
