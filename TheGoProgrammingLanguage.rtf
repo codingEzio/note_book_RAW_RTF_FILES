@@ -1,7 +1,9 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red183\green250\blue154;}
-{\*\expandedcolortbl;;\cssrgb\c76078\c97255\c66667;}
+{\colortbl;\red255\green255\blue255;\red183\green250\blue154;\red255\green235\blue127;\red171\green215\blue252;
+}
+{\*\expandedcolortbl;;\cssrgb\c76078\c97255\c66667;\cssrgb\c100000\c92941\c56863;\cssrgb\c72157\c87451\c99216;
+}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 Page 36\
@@ -12,5 +14,153 @@ right now is to give you an idea of what Go looks like and the kinds of\
 things that can be done easily with the language and its libraries.\cb1 \
 \
 LIVE writing tips (for myself)\
+\
+Page 55\
+\
+\cb3 If an entity is declared within a function, it is local to that function.\
+If declared outside of a function, however, it is\
+visible in all files of the package to which it belongs\cb1 \
+\
+Any variables outside of the `func xxx()` is\
+available to all the files which belongs to the same pkg.\
+\
+\cb4 The case of the first letter of a name determines\
+its visibility across package boundaries.  If the name\
+begins with an upper-case letter, it is\
+exported\cb1 \
+\
+which means that \
+* it is visible, accessible outside of its own pkg\
+* it may be referred to by other parts of the program\
+* as with Printf in the fmt package. \
+\
+I think it\'92s sorta like \'91__method_name\'92 in Python (in go it\'92s INDEED private)\
+\
+Package names themselves are always in lower case.\
+Check more details at https://www.callicoder.com/golang-packages/\
+\
+Page 56\
+\
+\cb4 The letters of acronyms and initialisms like ASCII and HTML\
+are always rendered in the same case, so a function might be\
+called htmlEscape, HTMLEscape, or escapeHTML, but\
+not escapeHtml.\cb1 \
+\
+A damn good guideline :)\
+\
+Page 61\
+\
+\cb4 One subtle but important point: a short variable declaration does not\
+necessarily declare all the variables on its left-hand side.  If\
+some of them were already declared in the same\
+lexical block (\'a72.7), then the short variable declaration acts\
+like an assignment to those variables.\cb1 \
+\
+A short variable declaration must declare at least ONE new var.\
+\
+Here\'92s an example\
+>> f, err := os.Open(infile)\
+>> f, err := os.Create(outfile)  // both declared\
+\
+Since they all have been declared, the 2nd line serves as \'93assignment\'94,\
+so now you should use the normal `=` instead of `:=`.\
+\
+Page 125\
+\
+\cb4 Arrays are homogeneous\'97their elements all have the same\
+type\'97whereas structs are heterogeneous.\
+\
+Both arrays and structs are fixed size.\
+\
+In contrast, slices and maps are dynamic data structures that grow as\
+values are added.\cb1 \
+\
+Page 130\
+\
+\cb4 A slice is a lightweight data structure that gives access to\
+a subsequence (or perhaps all) of the elements of an array\cb1 \
+\
+\cb4 A slice has three components: a pointer, a length, and a\
+capacity.\
+\
+The pointer points to the first element of the array that is\
+reachable through the slice, which is not necessarily the array\'92s\
+first element.\
+\
+The length is the number of slice elements; it can\'92t exceed\
+the capacity, which is usually the number of elements between the\
+start of the slice and the end of the underlying array\cb1 \
+\
+Page 143\
+\
+\cb2 an unordered collection of key/value pairs in which\
+all the keys are distinct\cb1 \
+\
+\cb2 keys in a given map are of the same type, and all of the values are of the same\
+type, but the keys need not be of the same type as the values\cb1 \
+\
+k : same type\
+v : same type\
+k/v :: whatever (in cmp to each other)\
+\
+Page 186\
+\
+\cb2 In a function with named results, the operands of a return statement\
+may be omitted.\
+\
+This is called a bare return.\cb1 \
+\
+FUNC :: (words, images int, err error)\
+BODY :: word, images = xxxXX(param)\
+\
+return (named)\
+return X, Y, Z (automatically) (param <- value)\
+\
+Page 188\
+\
+\cb3 an error may be nil or\
+non-nil, that nil implies success and non-nil implies failure, and\
+that a non-nil error has an error message string which\
+we can obtain by calling its Error method\
+or print by calling fmt.Println(err) or fmt.Printf("%v", err).\cb1 \
+\
+Page 189\
+\
+\cb3 Usually when a function returns a non-nil error, its other results are\
+undefined and should be ignored\cb1 \
+\
+\uc0\u12300 \u27492 \u21477 \u35441 \u30340 \u21547 \u32681 \u12301 \
+\uc0\u19968 \u26086 \u31243 \u24207 \u20986 \u37679 \u65292 \u25033 \u31435 \u21363  panic \u25110 \u22577 \u37679 \u65288 \u22240 \u27492 \u65292 \u20854 \u20182 \u30340 \u36820 \u22238 \u20540 \u25033 \u34987 \u24573 \u30053 \u65289 \
+\uc0\u27492 \u27231 \u21046 \u22312  Python \u37324 \u30452 \u25509 \u29992  try .. except \u21363 \u21487 \u65292 \u22312  Go \u37324 \u38656 \u25163 \u21205 \u25805 \u20316 \u12290 \
+\
+\cb2 Go\'92s approach sets it apart from many other languages in which failures are\
+reported using exceptions, not ordinary values.  Although Go\
+\
+does have an exception mechanism of sorts,\
+as we will see in Section\'a05.9,\
+it is used only for reporting truly unexpected errors\
+that indicate a bug,\cb1 \
+\
+\cb3 not the routine errors that a robust program\
+should be built to expect.\cb1 \
+\
+\uc0\u30495  bug\u65288 \u35486 \u35328 \u32026 \u21029 \u65289 -> Go \u25552 \u20379 \u27231 \u21046 \u31649 \
+\uc0\u20605  bug \u65288 \u26989 \u21209 \u23652 \u32026 \u65289 -> \u20320 \u25033 \u33391 \u22909 \u22320 \u25033 \u23565 \u20043 \
+\
+\cb4 The reason for this design is that exceptions tend to entangle\
+the description of an error with the control flow required to\
+handle it, often leading to an undesirable outcome: routine errors are\
+reported to the end user in the form of an incomprehensible stack\
+trace, full of information about the structure of the program but\
+lacking intelligible context about what went wrong.\cb1 \
+\
+\uc0\u12300 \u22823 \u33268 \u21487 \u36889 \u27171 \u29702 \u35299 \u12301 \
+\uc0\u24478 \u35486 \u35328 \u23652 \u32026 \u23559  \u37679 \u35492 /bug \u20998 \u39006 \u65292 \
+\uc0\u22914 \u27492 \u65292 \u22312 \u31243 \u24207 \u20986 \u37679 \u26178 \u65292 \u20006 \u19981 \u26371 \u39023 \u31034 \u22823 \u37327  \u35486 \u35328 \u24213 \u23652 \u30456 \u38364 \u30340 \u28961 \u38364 \u20449 \u24687 \u65288 \u25552 \u39640  debug \u25928 \u29575 \u65292 sort of\u65289 \
+\
+\cb2 By contrast, Go programs use ordinary control-flow\
+mechanisms like if and return to respond to errors.\
+This style undeniably demands that more attention be paid to\
+error-handling logic, but that is precisely the point.\cb1 \
 \
 }
